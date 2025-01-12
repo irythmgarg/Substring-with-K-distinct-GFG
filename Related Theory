@@ -1,0 +1,37 @@
+Theory Explanation:
+Sliding Window Approach:
+
+The solution uses a sliding window technique to find all valid substrings that contain at most p distinct characters.
+We maintain a window from index i to j, where i is the start of the window and j is the end.
+As we move j to the right, we check if the number of distinct characters exceeds p. If it does, we increment i to shrink the window from the left until the distinct character count is at most p.
+Counting Valid Substrings:
+
+For each position of j, the number of valid substrings is j - i + 1, as all substrings starting from i to j are valid.
+This ensures that all possible substrings with at most p distinct characters are counted.
+Difference Calculation:
+
+In the countSubstr function, we compute the number of substrings with exactly p distinct characters by subtracting the number of substrings with p-1 distinct characters from the number of substrings with p distinct characters. This gives us the exact number of substrings with exactly p distinct characters.
+Space Complexity:
+Auxiliary Space:
+
+The algorithm uses a frequency array a of size 256 to track the counts of each character. The size of this array is constant since it tracks all possible characters in the input (assuming ASCII characters).
+Other variables like count, i, j, and ans use constant space.
+Final Space Complexity: O(1) (constant space), as the frequency array size is fixed and does not depend on the input size.
+
+Time Complexity:
+Outer Loop (for j):
+
+The loop iterates through each character of the string (n iterations).
+Inner Loop (for i):
+
+The inner loop is responsible for shrinking the window when the number of distinct characters exceeds p. In the worst case, both i and j will each move across the string once.
+Overall Time Complexity:
+
+The two pointers i and j traverse the string only once, so the time complexity of each hlo call is O(n), where n is the length of the string.
+Final Time Complexity:
+
+The countSubstr function calls hlo twice, so the total time complexity is O(n) + O(n) = O(n).
+Overall Complexity:
+Time Complexity: O(n), where n is the length of the string.
+Space Complexity: O(1), as the auxiliary space used is constant.
+This solution efficiently computes the number of substrings with exactly p distinct characters using a sliding window approach, ensuring both time and space efficiency.
